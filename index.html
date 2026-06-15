@@ -13,19 +13,26 @@
   :root {
   --bg: #ffffff;
   --text: #333;
+  --text2: #666;
+  --text3: #999;
   --card: #ffffff;
   --border: #ddd;
+  --border2: #ddd;
   --nav-bg: #ffffff;
   --dot-color: rgba(0,0,0,0.12);
 
   --nav-border: rgba(0,0,0,0.12);
+  --mono: 'JetBrains Mono', monospace;
   }
 
   html[data-theme="dark"] {
   --bg: #000000;
   --text: #eaeaea;
+  --text2: #b0b0b0;
+  --text3: #888;
   --card: #1a1a1a;
   --border: #333;
+  --border2: #333;
   --nav-bg: #000000;
   --dot-color: rgba(255,255,255,0.12);
 
@@ -49,9 +56,13 @@
     display: grid;
     grid-template-columns: 1fr 160px;
     max-width: 900px;
-    margin: 80px auto;
+    margin: 0 auto;
     gap: 3rem;
-    align-items: start;
+    align-items: center;
+    min-height: calc(100vh - 61px);
+  }
+  .hero-sub {
+    max-width: 600px;
   }
   .hero-meta {
     display: flex; flex-wrap: wrap; gap: 0 1.5rem;
@@ -59,12 +70,9 @@
     color: var(--text3); margin-bottom: 1.5rem;
     font-size: 1.25=rem;
   }
-  .hero-sub {
-    margin-right: 100px;
-  }
   .hero-photo {
-    width: 160px;
-    height: 160px;
+    width: 220px;
+    height: 220px;
 
     border-radius: 50%;
     object-fit: cover;
@@ -120,6 +128,13 @@
   .hero-links a:hover {
       background-color: #333;
       transform: translateY(-2px);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 1.5rem;
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.25rem;
   }
 
   .navbar {
@@ -208,11 +223,340 @@
       margin-right: auto;
     }
 
-    #about {
-      margin-top: 300px;
+    h2 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-weight: 400;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
     }
 
-    
+    html {
+      scroll-padding-top: 70px; /* adjust to your navbar height */
+    }
+
+    section {
+      scroll-margin-top: 80px;
+    }
+    #about {
+      max-width: 900px;
+      margin: 120px auto;   /* keeps it centered */
+      padding: 0 20px;
+      text-align: left;     /* keeps text left-aligned */
+    }
+
+    /* ---------- Section headings ---------- */
+    .section-heading {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-weight: 400;
+      font-size: 2.25rem;
+      margin-bottom: 0.4rem;
+    }
+    .section-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text3);
+      margin: 0 0 0.5rem 0;
+    }
+    .section-intro {
+      color: var(--text2);
+      max-width: 650px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ---------- Projects ---------- */
+    #projects {
+      max-width: 900px;
+      margin: 120px auto;
+      padding: 0 20px;
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      min-height: 0px;
+    }
+    .project-card:hover {
+      transform: translateY(-3px);
+      border-color: #ddccba;
+    }
+    .project-card h3 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: var(--text);
+      margin: 0 0 0.5rem 0;
+    }
+    .project-card .project-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #b5544a;
+      margin: 0 0 0.75rem 0;
+      font-weight: 500;
+    }
+    .project-card p {
+      font-size: 0.92rem;
+      color: var(--text2);
+      margin: 0 0 1rem 0;
+      flex-grow: 1;
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    .project-tags span {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: #6b6258;
+      background: #f1e9df;
+      border: none;
+      border-radius: 6px;
+      padding: 3px 10px;
+    }
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+    .project-links a {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--accent-link, #b5544a);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s ease;
+    }
+    .project-links a:hover {
+      border-color: currentColor;
+    }
+    .project-card.placeholder {
+      border-style: dashed;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--text3);
+    }
+    .project-card.placeholder p {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      margin: 0;
+    }
+
+    /* ---------- Research / Papers ---------- */
+    #research {
+      max-width: 900px;
+      margin: 120px auto;
+      padding: 0 20px;
+    }
+    .paper-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .paper-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 1.25rem;
+      align-items: start;
+      transition: border-color 0.2s ease;
+    }
+    .paper-item:hover {
+      border-color: var(--text3);
+    }
+    .paper-meta {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--text3);
+      line-height: 1.5;
+    }
+    .paper-body h3 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-weight: 400;
+      font-size: 1.25rem;
+      margin: 0 0 0.4rem 0;
+    }
+    .paper-body p {
+      font-size: 0.9rem;
+      color: var(--text2);
+      margin: 0 0 0.75rem 0;
+    }
+    .paper-body a {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--accent-link, #51bc45);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+    .paper-body a:hover {
+      border-color: currentColor;
+    }
+    .paper-item.placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-style: dashed;
+      color: var(--text3);
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      min-height: 100px;
+    }
+
+    /* ---------- Contact ---------- */
+    #contact {
+      max-width: 900px;
+      margin: 120px auto 160px;
+      padding: 0 20px;
+    }
+    .contact-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      text-align: center;
+    }
+    .contact-box h2 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-weight: 400;
+      font-size: 2.25rem;
+      margin: 0 0 0.75rem 0;
+    }
+    .contact-box p {
+      color: var(--text2);
+      margin: 0 auto 1.5rem auto;
+      max-width: 500px;
+    }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .contact-links a {
+      text-decoration: none;
+      color: #fff;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 0.7rem;
+      padding: 10px 18px;
+      border: 1px solid #333;
+      border-radius: 8px;
+      background-color: #333;
+      transition: all 0.2s ease;
+    }
+    .contact-links a:hover {
+      transform: translateY(-2px);
+    }
+
+    /* ---------- Section indicator ---------- */
+    .section-indicator {
+      position: fixed;
+      top: 50%;
+      left: 24px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+      z-index: 900;
+    }
+    .section-indicator .indicator-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .section-indicator .indicator-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--border2);
+      transition: background 0.25s ease, transform 0.25s ease;
+      flex-shrink: 0;
+    }
+    .section-indicator .indicator-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text3);
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: opacity 0.25s ease, transform 0.25s ease, color 0.25s ease;
+      white-space: nowrap;
+    }
+    .section-indicator .indicator-item:hover .indicator-label,
+    .section-indicator .indicator-item.active .indicator-label {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .section-indicator .indicator-item.active .indicator-dot {
+      background: #51bc45;
+      transform: scale(1.3);
+    }
+    .section-indicator .indicator-item.active .indicator-label {
+      color: #51bc45;
+    }
+    @media (max-width: 900px) {
+      .section-indicator { display: none; }
+    }
+
+    @media (max-width: 700px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-photo {
+        margin: 0 auto;
+      }
+      .hero-meta {
+        justify-content: center;
+      }
+      .hero-links {
+        justify-content: center;
+      }
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+      .paper-item {
+        grid-template-columns: 1fr;
+      }
+    }
+    .research-item {
+      border-left: 2px solid var(--border2);
+      padding: 0.75rem 0 0.75rem 1.25rem;
+      margin-bottom: 1rem; transition: border-color 0.2s;
+    }
+
+    .research-item:hover { border-left-color: var(--accent); }
+
+    .research-venue {
+    font-family: var(--mono); font-size: 0.7rem; color:  #b5544a;
+    letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 0.25rem;
+  }
+
+  .research-title {
+    font-size: 0.96rem; font-weight: 500; margin-bottom: 0.25rem; line-height: 1.4;
+  }
+
+  .research-desc { font-size: 0.85rem; color: var(--text2); line-height: 1.55; }
+
 </style>
 </head>
 <body>
@@ -222,6 +566,7 @@
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
+        <a href="#research">Research</a>
         <a href="#contact">Contact</a>
       </div>
        
@@ -229,44 +574,176 @@
     <span id="theme-icon">☼</span>
     </button>
     </nav>
+
+  <!-- Side section indicator -->
+  <div class="section-indicator" id="section-indicator">
+    <a href="#hero" class="indicator-item" data-section="hero">
+      <span class="indicator-dot"></span>
+      <span class="indicator-label">Home</span>
+    </a>
+    <a href="#about" class="indicator-item" data-section="about">
+      <span class="indicator-dot"></span>
+      <span class="indicator-label">About</span>
+    </a>
+    <a href="#projects" class="indicator-item" data-section="projects">
+      <span class="indicator-dot"></span>
+      <span class="indicator-label">Projects</span>
+    </a>
+    <a href="#research" class="indicator-item" data-section="research">
+      <span class="indicator-dot"></span>
+      <span class="indicator-label">Research</span>
+    </a>
+    <a href="#contact" class="indicator-item" data-section="contact">
+      <span class="indicator-dot"></span>
+      <span class="indicator-label">Contact</span>
+    </a>
+  </div>
+
   <!--Hero section creation (cover page)-->
   <div class="hero" id="hero">
-    <div class="hero-text">
-      <h1><span id="typed"></span></h1>
-      <div id="typed-strings">
-        <p>Building Systems that <span class="accent"><em>UNCOVER</em></span> Patterns</p>
-      </div>
 
-      <p class="hero-sub">Hi, I'm Raj! I'm an incoming first-year student at University of Wisconsin–Madison studying Molecular and Cellular Biology. I'm interested in learning about research, computational biology, and science communication—and how these fields can intersect to advance the human condition. I'd love to connect. Feel free to reach out at rhpatel6 [at] wisc [dot] edu
-      </p>
+  <div class="hero-text">
+    <h1><span id="typed"></span></h1>
 
-      <div class="hero-meta">
-        <b><span><strong>IMSA '26 · UW-Madison Bio '30</strong></span></b>
-        <b><span>Caledonia, IL</span></b>
-        <br>
-        <span>Python · Wet Lab Research · Web Development · Data Analysis</span>
-        </br>
-      </div>
-      <!--Button links-->
-      <div class="hero-links">
-        <a href="https://github.com/rajptl14" target="_blank" rel="noopener noreferrer">github</a>
-        <a href="https://www.linkedin.com/in/raj-patel-115321330" target="_blank" rel="noopener noreferrer">linkedin</a>
-        <a href="mailto:rajptl2026@gmail.com">email</a>
-        <a href="#research">papers</a>
-      </div>
+    <div id="typed-strings">
+      <p>Building Systems that <span class="accent"><em>UNCOVER</em></span> Patterns</p>
+    </div>
+
+    <p class="hero-sub">
+      Hi, I'm Raj! I'm an incoming first-year student at University of Wisconsin–Madison studying Molecular and Cellular Biology. I'm interested in learning about research, computational biology, and science communication—and how these fields can intersect to advance the human condition. I'd love to connect. Feel free to reach out at rhpatel6 [at] wisc [dot] edu
+    </p>
+
+    <div class="hero-meta">
+      <b><span><strong>IMSA '26 · UW-Madison Bio '30</strong></span></b>
+      <b><span>Caledonia, IL</span></b>
+      <br>
+      <span>Python · Wet Lab Research · Web Development · Data Analysis</span>
+    </div>
+
+    <div class="hero-stats">
+      <span>2 Research Labs</span>
+      <span>1 Conference Presentation</span>
+      <span>$750 Raised</span>
+    </div>
+
+    <div class="hero-links">
+      <a href="https://github.com/rajptl14" target="_blank">github</a>
+      <a href="https://www.linkedin.com/in/raj-patel-115321330" target="_blank">linkedin</a>
+      <a href="mailto:rajptl2026@gmail.com">email</a>
+      <a href="#research">papers</a>
+    </div>
   </div>
-<!--My pfp-->
-<img src="1E14DFCE-D0F1-426E-8BD9-48F86859236F.JPG"
-     alt="Raj Patel"
-     class="hero-photo">
+
+  <!-- THIS is the correct right-side column -->
+  <img src="1E14DFCE-D0F1-426E-8BD9-48F86859236F.JPG"
+       alt="Raj Patel"
+       class="hero-photo">
+
+</div>
 <section id="about">
   <h2>About Me</h2>
-  <p>I’m an incoming freshman at the University of Wisconsin–Madison. Prior to university, I attended the Illinois Mathematics and Science Academy, where I focused on rigorous coursework alongside research in computational biology and medicine.
+  <p>I’m an incoming freshman at the University of Wisconsin–Madison studying Molecular and Cellular Biology. Before college, I attended the Illinois Mathematics and Science Academy (IMSA), where I combined rigorous STEM coursework with research in computational biology and medicine.
 
-  Over the past few years, I’ve conducted research with Northwestern University’s Klein Lab and the University of Illinois Chicago’s Minshall Lab, worked on independent research projects with peers, and taken on IMSA’s challenging STEM curriculum. Outside of research, I co-founded AURA, a fundraiser dedicated to supporting early breast cancer detection and awareness.
+Over the past several years, I have conducted research with Northwestern University's Klein Lab and the University of Illinois Chicago's Minshall Lab, contributed to independent research projects with peers, and explored how computational methods can be used to better understand human disease. Beyond research, I co-founded AURA, a student-led initiative dedicated to supporting breast cancer awareness and early detection.
 
-  I’m especially interested in early disease detection, biological pattern discovery, and building computational systems that reveal structure in complex medical and scientific data. Outside of research and coding, I enjoy science communication and thinking about how technical ideas can be made more understandable and impactful.</p>
+My interests lie at the intersection of biology, computation, and medicine—particularly in early disease detection, biological pattern discovery, and the development of computational tools that uncover meaningful insights from complex scientific and medical data. I am also passionate about science communication and enjoy translating technical concepts into ideas that are accessible, engaging, and impactful for broader audiences.</p>
 </section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects">
+  <h2 class="section-heading">Selected Work</h2>
+  <p class="section-intro">
+A collection of research projects, independent initiatives, and technical work exploring biology, medicine, and artificial intelligence.  </p>
+
+  <div class="project-grid">
+
+    <!-- Project card 1 -->
+    <div class="project-card">
+      <h3>AIthena Research Group</h3>
+      <p class="project-eyebrow">independent lab · peer reviewed output</p>
+      <p>Co-founded an independent AI research group producing work in machine learning, computational neuroscience, and AI reasoning without university affiliation.</p>
+      <div class="project-tags">
+        <span>AI Evaluation</span>
+        <span>Research</span>
+      </div>
+    </div>
+
+    <!-- Project card 2 -->
+    <div class="project-card">
+      <h3>Alzheimer's Research</h3>
+      <p class="project-eyebrow">Klein Lab · Northwestern</p>
+      <p>One year under the guidance of Dr. Raghd Norwar, conducting quantitative assays to detect signal changes due to a drug called NU-9.</p>
+      <div class="project-tags">
+        <span>Research</span>
+      </div>
+    </div>
+
+    <!-- Project card 3 -->
+    <div class="project-card">
+      <h3>AURA Awareness</h3>
+      <p class="project-eyebrow">Nonprofit · Community Impact · $750 raised</p>
+      <p>Co-founded a nonprofit organization dedicated to supporting early breast cancer detection and awareness through fundraising and educational initiatives.</p>
+      <div class="project-tags">
+        <span>Initative</span>
+        <span>Outreach</span>
+        <span>Management</span>
+      </div>
+      <div class="project-links">
+        <a href="https://www.gofundme.com/f/auras-mission-detect-cancer-early" target="_blank">GoFundMe</a>
+      </div>
+    </div>
+
+    <!-- 4th project -->
+    <div class="project-card">
+      <h3>Triple Negative Breast Cancer Research</h3>
+      <p class="project-eyebrow"> Minshall Lab · University of Illinois Chicago</p>
+      <p> One year under the guidance of Dr. Richard D. Minshall, conducting trans-endothelial electrical resistance tests or Bradford assays to test NS1643's impact on cell junctions. </p>
+      <div class="project-tags">
+        <span>Research</span>
+      </div>
+    </div>
+
+    <!-- 5th project -->
+    <div class="project-card">
+      <h3>Assessing AI and Page Length Research</h3>
+      <p class="project-eyebrow"> Remote · Rockford University</p>
+      <p> Investigated how page length relates to false positives in GPT-0, discovering GPT-0 flagged our human essays. I presented to an audience of 25 at the ISAAPT conference </p>
+      <div class="project-tags">
+        <span>AI Evaluation</span>
+        <span>Research</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RESEARCH / PAPERS ================= -->
+<section id="research">
+  <h2 class="section-heading">Publications & Writing</h2>
+  <p class="section-intro">
+    Papers, posters, and write-ups from research work. </p>
+  <div class="research-item">
+      <div class="research-venue">CVPR acceptance 2026 · First author</div>
+      <div class="research-title">Multimodal discovery of hidden Alzheimer's disease subtypes from MRI data.</div>
+      <div class="research-desc">Analyzed data for an unsupervised ML pipeline for identifying structural and functional subgroups in Alzheimer's disease.</div>
+    </div>
+
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="contact-box">
+    <h2>Get in Touch</h2>
+    <p>
+      Whether it's research, collaboration, or just a conversation about science and code—my inbox is open.
+    </p>
+    <div class="contact-links">
+      <a href="https://github.com/rajptl14" target="_blank">github</a>
+      <a href="https://www.linkedin.com/in/raj-patel-115321330" target="_blank">linkedin</a>
+      <a href="mailto:rajptl2026@gmail.com">email</a>
+    </div>
+  </div>
+</section>
+
 <script>
     const toggle = document.getElementById("theme-toggle");
     const root = document.documentElement;
@@ -294,6 +771,31 @@
     loop: false,
     showCursor: false
   });
+</script>
+<script>
+  const indicatorItems = document.querySelectorAll('.section-indicator .indicator-item');
+  const sections = ['hero', 'about', 'projects', 'research', 'contact']
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+
+  const setActive = (id) => {
+    indicatorItems.forEach(item => {
+      item.classList.toggle('active', item.dataset.section === id);
+    });
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setActive(entry.target.id);
+      }
+    });
+  }, {
+    rootMargin: '-40% 0px -40% 0px',
+    threshold: 0
+  });
+
+  sections.forEach(section => observer.observe(section));
 </script>
 </body>
 </html>
