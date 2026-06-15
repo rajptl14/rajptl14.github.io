@@ -20,6 +20,7 @@
     rgba(255,255,255,0.95),
     rgba(220,220,220,0.85)
   );
+  --dot-color: rgba(0,0,0,0.12);
 
   --nav-border: rgba(0,0,0,0.12);
   }
@@ -35,16 +36,22 @@
     #141414 45%,
     #070707 100%
   );
+  --dot-color: rgba(255,255,255,0.12);
 
   --nav-border: rgba(255,255,255,0.18);
   }
   
-   body {
+  body {
     margin: 0;
     font-family: 'Inter', sans-serif;
 
     background-color: var(--bg);
     color: var(--text);
+     
+    background-image:
+    radial-gradient(circle, var(--dot-color) 1.5px, transparent 1.5px);
+
+    background-size: 24px 24px;
   }
    .hero {
     display: grid;
@@ -176,7 +183,22 @@
       overflow-wrap: break-word;
       white-space: normal;
     }
-  
+    .dot-pattern {
+      width: 200px;
+      height: 200px;
+
+      background-image:
+        radial-gradient(circle, #cfcfcf 2px, transparent 2px);
+
+      background-size: 16px 16px;
+    }
+    p {
+      font-size: 1.175rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
 </style>
 </head>
 <body>
@@ -208,8 +230,8 @@
       </p>
       <div class="hero-meta">
         <span><strong>IMSA '26 · UW-Madison Bio '30</strong></span>
-        <span>Aurora, IL</span>
-        <span>Python · Wet Lab Research · Molecular Biology · Data Analysis</span>
+        <span>Caledonia, IL</span>
+        <span>Python · Wet Lab Research · Web Development · Data Analysis</span>
       </div>
       <div class="hero-links">
         <a href="https://github.com/rajptl14" target="_blank" rel="noopener noreferrer">github</a>
