@@ -63,6 +63,8 @@
   }
   .hero-sub {
     max-width: 600px;
+    font-size: 1.2rem;
+    color: var(--text2);
   }
   .hero-meta {
     display: flex; flex-wrap: wrap; gap: 0 1.5rem;
@@ -78,7 +80,7 @@
     object-fit: cover;
 
     display: block;
-    align-self: end;
+    align-self: center;
   }
   .hero-text {
     min-width: 0;
@@ -87,7 +89,8 @@
     white-space: normal; 
     font-family: 'Instrument Serif', Georgia, serif;
     font-weight:100;
-    font-size: 2.5rem;
+    font-size: 4rem;
+    max-width: 700px;
     line-height: 1.2;
     spacing: 0em; 
     margin-bottom: 0.5rem;
@@ -523,7 +526,8 @@
         text-align: center;
       }
       .hero-photo {
-        margin: 0 auto;
+        margin: 0px auto;
+        
       }
       .hero-meta {
         justify-content: center;
@@ -557,6 +561,12 @@
 
   .research-desc { font-size: 0.85rem; color: var(--text2); line-height: 1.55; }
 
+  .accent-line {
+    width: 600px;
+    height: 3px;
+    background: #51bc45;
+    margin: 1rem 0 1.5rem 0;
+  }
 </style>
 </head>
 <body>
@@ -605,6 +615,8 @@
   <div class="hero-text">
     <h1><span id="typed"></span></h1>
 
+    <div class="accent-line"></div>
+
     <div id="typed-strings">
       <p>Building Systems that <span class="accent"><em>UNCOVER</em></span> Patterns</p>
     </div>
@@ -635,10 +647,15 @@
   </div>
 
   <!-- THIS is the correct right-side column -->
+  <div class="hero-images">
   <img src="1E14DFCE-D0F1-426E-8BD9-48F86859236F.JPG"
        alt="Raj Patel"
        class="hero-photo">
 
+  <img src="IMSA_logo.png"
+       alt="IMSA Logo"
+       class="school-logo">
+</div>
 </div>
 <section id="about">
   <h2>About Me</h2>
